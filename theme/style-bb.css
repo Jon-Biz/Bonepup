@@ -1,0 +1,281 @@
+/*
+Theme Name: Kate El-Bizri 0.1
+
+*/
+
+/* Reset default browser styles */
+@import url('styles/reset.css');
+
+
+/* Rebuild default browser styles */
+@import url('styles/rebuild.css');
+
+/* Basic layout 
+@import url('styles/2c-l.css');*/
+
+/* Basic WordPress Styles 
+@import url('styles/wp.css');
+*/
+
+/* Import Font */
+@import url(http://fonts.googleapis.com/css?family=Baumans);
+
+@import url(http://fonts.googleapis.com/css?family=Quattrocento);
+
+body {
+  margin-top: 25px;
+  margin-left: 0px;
+	font-family: 'Quattrocento', serif;
+	font-size: 15px;
+	font-style: italic;
+	font-weight: normal;
+	text-transform: normal;
+	letter-spacing: normal;
+	line-height: 1.6em;
+	background-repeat:no-repeat;
+}
+
+/* =Menu
+-------------------------------------------------------------- */
+
+#header {
+	overflow: auto;
+  width:900px;
+}
+#access {
+position: relative;
+left:0px;
+width:875px;
+}
+.skip-link {
+  display: none;
+}
+
+.menu {
+  list-style: none;
+	margin-left:0px;
+	float:right;
+				
+}
+.menu ul ul {
+  display: none;
+}
+.menu li {
+    display: block;
+    float: left;
+		padding: 0px 30px 0px 0px;
+}
+
+.menu a:link {text-decoration: none}
+.menu a:visited {text-decoration: none}
+.menu a:active {text-decoration: none}
+.menu a:hover {text-decoration: none; color: red;}
+
+/* =Main Section
+-------------------------------------------------------------- */
+
+/* set main to relative so that sub elements are positioned relatively */
+#main {
+	position:relative;
+
+}
+
+
+/* =Products List
+-------------------------------------------------------------- */
+#secondary {
+	margin-top:20px;
+	width:200px
+}
+
+
+#secondary .children{
+	height: 0em;
+	overflow:hidden;
+}
+
+.Products li {
+        list-style: none;	
+        font-size: 5;		
+}
+
+.Products a:link {text-decoration: none;color:#821230}
+.Products a:visited {text-decoration: none;color:#821230}
+.Products a:active {text-decoration: none;color:#821230}
+.Products a:hover {text-decoration: none; color:#821230}
+
+.Products li li a:link {text-decoration: none;color:#A9ADAC}
+.Products li li a:visited {text-decoration: none;color:#A9ADAC}
+.Products li li a:active {text-decoration: none;color:#A9ADAC}
+.Products li li a:hover {text-decoration: none;color:#A9ADAC}
+
+
+/* =Content
+-------------------------------------------------------------- */
+#primary {
+	position: absolute;
+	top:-24px;
+	left:200px;
+	height:1000px;
+	width: 775px;
+}
+#content{
+	font-style:normal;
+	font-size:12px;
+	overflow:hidden;
+	height:555px;
+	position: relative;
+}
+
+#product-display{
+	position:absolute;
+	overflow:hidden;
+	height:740px;
+	width:800px
+}
+
+#gallery {
+
+	position:relative;
+
+}
+
+#gallery #item{
+	left:75px;
+	position: relative;
+	top:0px;
+	width:625px;
+	height:925px;
+	overflow:hidden;
+	
+}
+#carousel {
+	top:-400px;
+	position:absolute;
+	height:1025px;
+	left: 0px;
+	width: 1000px;
+}
+.image-box {
+	position:absolute;
+	height:525px;
+	top:425px;
+  }
+
+.image-box .img {
+	width:135px;
+
+
+
+}
+
+
+.pointer {
+	height:30px;
+	width:2px;
+	margin: 0px auto;
+	background-color:#E4E5E5;
+	opacity:0;
+}
+
+.arrow {
+	position: absolute;
+	top:0px;
+	width:65px;
+	height:550px;
+	z-index:10;
+	opacity: 0;
+}
+
+#right {
+	left:700px;
+	background-image: url('assets/img/rightarrow.png');
+
+}
+
+
+#left {
+	left:0px;
+	background-image: url('assets/img/leftarrow.png');
+}
+#ruler {
+	position: relative;
+	height:2px;
+	width:inherit;
+	overflow:hidden;
+	background-color:#E4E5E5;
+}
+
+
+/* =Description
+-------------------------------------------------------------- */
+
+#description-box {
+	position:relative;
+	margin-left: 45px;
+}
+
+.prod_description{
+	position:absolute;
+	opacity:0.0;
+}
+
+
+/* =ProductDisplay
+-------------------------------------------------------------- */
+#producttitle{
+
+	position: absolute;
+	left: 250px;
+	top: 30px;
+
+}
+
+#producttext{
+	margin-top: 20px;
+
+	position: absolute;
+	left: 300px;
+	top: 0px;
+	width:350px;
+	height:400px;
+}
+
+#productimage{
+	position: absolute;
+	top: -400px;
+	width: 300px;
+}
+h1{
+	color:red;
+}
+
+#productfaderight{
+	position: absolute;
+	top: 0px;
+	left: 675px;
+	width: 25px;
+	height: 525px;
+	background-image: url('assets/img/faderight.png');	
+}
+#productfadebot{
+	position: absolute;
+	top: 530px;
+	width: 300px;
+	height: 25px;
+	background-image: url('assets/img/fadebot.png');
+	
+}
+#productfadetop{
+	position: absolute;
+	top: 0px;
+	width: 300px;
+	height: 25px;
+	background-image: url('assets/img/fadetop.png');
+}
+
+/* -------------------------------------------------------------------------*/
+
+#wrapper{
+	opacity: 0;	
+}
