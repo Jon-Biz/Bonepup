@@ -163,6 +163,8 @@ width:875px;
   }
 
 .image-box .img {
+	position:relative;
+	top:0px;
 	width:135px;
 
 

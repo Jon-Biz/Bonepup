@@ -112,10 +112,12 @@ App.module("KateDesign", function(KateDesign){
 			}else{
 								
 				/* animation 1		*/
-				//console.log('fsdfsdsds=========='+targetstr);
-				this.$el.stop(true).animate({opacity:1.0},750).animate({left:'0px'},750,function(){
 
-					$('.img',this.el).animate({top:'0px',width:'300px'},750, function(){
+				this.$el.stop(true).animate({opacity:1.0},750).animate({left:'0px'},750,function(){
+					
+					var thetop = "-"+(model.get("custom_fields").zoomx1[0])+"px";
+					
+					$('.img',this.el).animate({top:thetop,width:'300px',left:'-100px'},750, function(){
 						console.log('animate done');
 						App.vent.trigger("KD:subviewsready",model);
 					});
@@ -318,8 +320,12 @@ App.module("KateDesign", function(KateDesign){
 				this.collection.each(function(model){
 					if (model == selected_model){
 						submodel = true;
-						$('.arrow').animate({opacity: 0},250);
-						var options = [model,this.left]
+
+						$('.arrow').animate({opacity: 0},750,function(){
+							$('#item').css('overflow','visible');							
+						});
+						
+						var options = [model,this.left];
 						console.log(this.left);
 						App.vent.trigger('KD:modelselected',options);	
 					}
