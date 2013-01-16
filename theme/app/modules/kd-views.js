@@ -5,6 +5,9 @@ App.module("KateDesign", function(KateDesign){
 		App.vent.bindTo('KD:navigate', function(model){			
 				console.log('navigate called to '+model.get('slug'));
 		});
+		App.vent.bindTo('KD:gallery', function(model){
+			console.log('KD:gallery called');
+		})
 		
 		
 	});

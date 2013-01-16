@@ -14,7 +14,8 @@ App.module("KateDesign", function(KateDesign){
 	KateDesign.Product = function(Product){
 		console.log(Product);
 		var ProductView = new KateDesign.ProductView({'model':Product});
-		KateDesign.Load = function(ProductView){
+		
+		KateDesign.ProdLoad = function(ProductView){
 			ProductView.$el.css({opacity:0.0});
 					ProductView.$el.stop(true).animate({opacity:1.0},500);
 	
@@ -26,7 +27,7 @@ App.module("KateDesign", function(KateDesign){
 			}
 				
 // TODO fix preload
-		KateDesign.OnImageLoad.add(function(options){KateDesign.Load(ProductView);});	
+		KateDesign.OnImageLoad.add(function(options){KateDesign.ProdLoad(ProductView);});	
 		KateDesign.OnImageLoad.run();
 	};
 
@@ -40,15 +41,19 @@ App.module("KateDesign", function(KateDesign){
 		console.log("product from gallery");
 		var ProductView = new KateDesign.ProductView({'model':Product});
 		
-		App.MainRegion.on('view:show',function(view){		
-				$('#product-display').animate({opacity: 1},1000);
-			});
+		KateDesign.ProdLoadGallery = function(ProductView){
+			App.MainRegion.on('view:show',function(view){		
+					$('#product-display').animate({opacity: 1},1000);
+				});
+	
+			//call the unveil callback to show the app
+			App.MainRegion.show(ProductView);
 
-		//call the unveil callback to show the app
-		App.MainRegion.show(ProductView);
+			
+		};
 
 // TODO what is this?
-		KateDesign.OnImageLoad.add(function(options){KateDesign.Load(ProductView);});	
+		KateDesign.OnImageLoad.add(function(options){KateDesign.ProdLoadGallery(ProductView);});	
 		KateDesign.OnImageLoad.run();
 
 /*		$('#product-display').css({left: 0,opacity:1});		
@@ -72,11 +77,9 @@ App.module("KateDesign", function(KateDesign){
 		,className:"product"
 		,template:"#productview"
 		,initialize:function(){
-			_(this).bindAll('onclick');
-			_(this).bindAll('onmouseover');
-			_(this).bindAll('onmouseout');
 			
 			this.onnavigateBind = App.vent.bindTo('KD:navigate',this.navigate,this);							
+			console.log('navigate bound');
 		
 		}
 		,navigate: function(model){
