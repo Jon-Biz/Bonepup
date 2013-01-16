@@ -24,11 +24,11 @@ App.module("KateDesign", function(KateDesign){
 				$('#wrapper').animate({opacity:1},600, function(){
 								
 				});
+			}
 				
 // TODO what is this?
 		KateDesign.OnImageLoad.add(function(options){KateDesign.Load(ProductView);});	
 		KateDesign.OnImageLoad.run();
-			}
 	};
 
 	// ALternative reveal called directly from Gallery
