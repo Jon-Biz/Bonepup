@@ -8,10 +8,9 @@ App.module("KateDesign", function(KateDesign){
 	// View Trigger Function
 	
 	App.addInitializer(function(){
-		console.log('from menu bound');
 		App.vent.bindTo('KD:product', KateDesign.Product);
 	});
-
+	
 	KateDesign.Product = function(Product){
 		console.log(Product);
 		var ProductView = new KateDesign.ProductView({'model':Product});
@@ -26,7 +25,7 @@ App.module("KateDesign", function(KateDesign){
 				});
 			}
 				
-// TODO what is this?
+// TODO fix preload
 		KateDesign.OnImageLoad.add(function(options){KateDesign.Load(ProductView);});	
 		KateDesign.OnImageLoad.run();
 	};
@@ -34,7 +33,6 @@ App.module("KateDesign", function(KateDesign){
 	// ALternative reveal called directly from Gallery
 
 	App.addInitializer(function(){
-		console.log('from gallery bound');
 		App.vent.bindTo('KD:productfromgallery', KateDesign.ProductfromGallery);
 	});
 
@@ -78,13 +76,13 @@ App.module("KateDesign", function(KateDesign){
 			_(this).bindAll('onmouseover');
 			_(this).bindAll('onmouseout');
 			
-		this.onnavigate = App.vent.bindTo('KD:navigate',this.navigate,this);							
+			this.onnavigateBind = App.vent.bindTo('KD:navigate',this.navigate,this);							
 		
 		}
 		,navigate: function(model){
 			console.log('navigating from view');
 
-			// product veiw remove		
+			// remove	the view if this isn't it	
 			if(this.model != model){
 				// vanish the model.
 				this.$el.stop(true).animate({opacity:0.0},500, function(){
@@ -144,7 +142,7 @@ App.module("KateDesign", function(KateDesign){
 //			KateDesign.Product(this.model.get('title'));
 		}
 		,onClose:function(){
-			App.vent.unbindFrom(this.onnavigate);
+			App.vent.unbindFrom(this.onnavigateBind);
 			console.log('vanished view closed');
 
 		}
