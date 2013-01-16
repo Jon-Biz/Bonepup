@@ -7,8 +7,6 @@ App.module("Data", function(Data){
 		defaults: {
 			"title": "undefined"
 			,"description": "undefined"
-			,"xoffset":"0px"
-			,"zoom":"300px"
 		}
 		,initialize: function(){			
 			
