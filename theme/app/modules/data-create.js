@@ -7,7 +7,10 @@ App.module("Data", function(Data){
 	App.addInitializer(function(){
 		
 		Data.Pages = new Data.PageCollection();
-		Data.Pages.url = "/?json=get_page_index&custom_fields=description";
+		
+		// Add all custom fields required to this comma delimited list, or they won't be pulled
+		
+		Data.Pages.url = "/?json=get_page_index&custom_fields=Brand,Client,closeup,description,Product,Varietals,zoomx1,zoomx2";
 		Data.Pages.fetch({success: function(collection,resp){
 			console.log('collection fetched', resp)
 			}}).done(function(){
