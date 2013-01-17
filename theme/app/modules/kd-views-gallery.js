@@ -50,8 +50,13 @@ App.module("KateDesign", function(KateDesign){
 		,templateHelpers:{
 			grabthumbnail: function(){
 				
+				if(this.custom_fields){
+					if(this.custom_fields.product_image){
+							return (this.custom_fields.product_image[0]);		
+					}
+				} else if(this.attachments.length){
+
 				//if the model's attachment array has any contents,return the last one's url'
-				if(this.attachments.length){
 					url = (this.attachments[this.attachments.length-1].images.full.url);
 					return url;		
 				}
@@ -76,15 +81,15 @@ App.module("KateDesign", function(KateDesign){
 
 			this.$('.pointer').animate({opacity:1.0},250);
 			description = '#description-'+this.model.get('id');
-			$(description).animate({opacity:1.0},1250);
+			$(description).animate({opacity:1.0},500);
 			
 		}
 		,onmouseout: function(view){
 			
 			console.log('onmouseout',this.model.get('title'));
 			//remove pointer
-			this.$('.pointer').stop(true).animate({opacity:0.0},250);
-			$('#description-'+this.model.get('id')).stop(true).animate({opacity:0.0},250, function() {
+			this.$('.pointer').stop(true).animate({opacity:0.0},125);
+			$('#description-'+this.model.get('id')).stop(true).animate({opacity:0.0},125, function() {
     		// Animation complete.
   
   			}
@@ -135,8 +140,9 @@ App.module("KateDesign", function(KateDesign){
 
 					}).animate({left:'0px'},750,function(){
 						
-						var thetop = '-430px';
-						//var thetop = "-"+(model.get("custom_fields").zoomx1[0])+"px";
+						//var thetop = '-498px';
+						var thetop = "-"+(model.get("custom_fields").zoomx1[0])+"px";
+						console.log('the top is',thetop);
 						$('.img',this.el).animate({top:thetop,width:'300px',left:'-75px'},750, function(){
 						App.vent.trigger("KD:subviewsready",model);
 					});

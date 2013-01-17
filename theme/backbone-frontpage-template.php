@@ -113,14 +113,14 @@ Template Name: Backbone Front Page
 <div id="main">
 	<div id="secondary"></div>
 	<div id="primary">
-		<div id="ruler"></div>
+		<div class="ruler"></div>
 		<div id="content">
 			<div id="product-display"></div><!-- #product-display -->		
 
 	<div id="productfadetop"></div>
 	<div id="productfadebot"></div>
 		</div><!-- #content -->
-		<div id="ruler"></div>
+		<div class="ruler" id="bottom_ruler"></div>
 		<div id="description-box">
 		</div><!-- description-box-->
 	</div><!--primary -->

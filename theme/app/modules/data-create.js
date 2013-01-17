@@ -10,7 +10,7 @@ App.module("Data", function(Data){
 		
 		// Add all custom fields required to this comma delimited list, or they won't be pulled
 		
-		Data.Pages.url = "/?json=get_page_index&custom_fields=Brand,Client,closeup,description,Product,Varietals,zoomx1,zoomx2";
+		Data.Pages.url = "/?json=get_page_index&custom_fields=Brand,Client,closeup,description,product_image,Product,Varietals,zoomx1,zoomx2";
 		Data.Pages.fetch({success: function(collection,resp){
 			console.log('collection fetched', resp)
 			}}).done(function(){

@@ -14,13 +14,18 @@ App.module("KateDesign", function(KateDesign){
 	KateDesign.Product = function(Product){
 		console.log(Product);
 		var ProductView = new KateDesign.ProductView({'model':Product});
-		
+
 		KateDesign.ProdLoad = function(ProductView){
 			ProductView.$el.css({opacity:0.0});
-					ProductView.$el.stop(true).animate({opacity:1.0},500);
+			ProductView.$el.stop(true).animate({opacity:1.0},500);
 	
 			App.MainRegion.show(ProductView);	
-				console.log('gallery loaded');
+				console.log('product loaded');
+
+				$('#content').css('overflow','visible');
+
+				$('#bottom_ruler').animate({'opacity':0},250);
+					
 				$('#wrapper').animate({opacity:1},600, function(){
 								
 				});
@@ -43,7 +48,12 @@ App.module("KateDesign", function(KateDesign){
 		
 		KateDesign.ProdLoadGallery = function(ProductView){
 			App.MainRegion.on('view:show',function(view){		
+				$('#content').css('overflow','visible');
+				$('#bottom_ruler').css('opacity',0);
+
+
 					$('#product-display').animate({opacity: 1},1000);
+
 				});
 	
 			//call the unveil callback to show the app
@@ -77,7 +87,6 @@ App.module("KateDesign", function(KateDesign){
 		,className:"product"
 		,template:"#productview"
 		,initialize:function(){
-			
 			this.onnavigateBind = App.vent.bindTo('KD:navigate',this.navigate,this);							
 			console.log('navigate bound');
 		
@@ -100,23 +109,11 @@ App.module("KateDesign", function(KateDesign){
 			//	return('http://192.168.0.35/wp-content/uploads/2012/05/bottle11.jpg');
 				//default url is the last image uploaded
 
-
 				//if the model's attachment array has any contents,return the last one's url'
-				if(this.attachments){
-							console.log('lenght '+this.attachments.length);	
-
-					if(this.attachments.length){
-						//TODO - make this the featured image instead
+				if(this.custom_fields){
+					if(this.custom_fields.closeup){
+							return (this.custom_fields.closeup[0]);
 						
-						 //url = (this.attachments[this.attachments.length-1].images.large.url);
-
-						 _.each(this.attachments, function(attachment){
-								url = attachment.images.large.url;
-	
-						});
-						
-					return url
-				
 					}
 				}	
 			}

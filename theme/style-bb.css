@@ -219,7 +219,7 @@ width:875px;
 	left:0px;
 }
 
-#ruler {
+.ruler {
 	position: relative;
 	height:2px;
 	width:inherit;
@@ -264,7 +264,6 @@ width:875px;
 
 #productimage{
 	position: absolute;
-	top: -400px;
 	width: 300px;
 }
 h1{
@@ -296,7 +295,6 @@ h1{
 	height: 25px;
 	z-index:100;
 	opacity:0;
-
 	background-image: url('assets/img/fadetop.png');
 }
 
