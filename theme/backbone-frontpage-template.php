@@ -26,6 +26,7 @@ Template Name: Backbone Front Page
 	<script src="<?php echo get_bloginfo('template_directory');?>/assets/js/libs/backbone.marionette.js"></script>
 	<script src="<?php echo get_bloginfo('template_directory');?>/assets/js/libs/PxLoader.js" ></script>
 	<script src="<?php echo get_bloginfo('template_directory');?>/assets/js/libs/PxLoaderImage.js" ></script>
+	<script src="<?php echo get_bloginfo('template_directory');?>/assets/js/libs/gsap/TimelineLite.min.js" ></script>
 
 <!-- Javascript -->
 
