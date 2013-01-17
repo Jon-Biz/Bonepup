@@ -77,7 +77,11 @@ Template Name: Backbone Front Page
 		</div>
 	</div>
 	<div id="productfaderight"></div>	
-				 	<div class="arrow" id="left"></div>	
+
+	<div class="arrowbg" id="leftbg"></div>	
+	<div class="arrowbg" id="rightbg"></div>	
+
+	<div class="arrow" id="left"></div>	
 	<div class="arrow" id="right"></div>	
 
 

@@ -180,6 +180,17 @@ width:875px;
 	opacity:0;
 }
 
+.arrowbg {
+	position: absolute;
+	top:0px;
+	width:65px;
+	height:550px;
+	z-index:9;
+	opacity: 1;
+	background-color: white;
+}
+
+
 .arrow {
 	position: absolute;
 	top:0px;
@@ -195,11 +206,19 @@ width:875px;
 
 }
 
+#rightbg{
+	left:700px;
+}
 
 #left {
 	left:0px;
 	background-image: url('assets/img/leftarrow.png');
 }
+
+#leftbg{
+	left:0px;
+}
+
 #ruler {
 	position: relative;
 	height:2px;
@@ -265,6 +284,8 @@ h1{
 	top: 530px;
 	width: 300px;
 	height: 25px;
+	z-index:100;
+	opacity:0;
 	background-image: url('assets/img/fadebot.png');
 	
 }
@@ -273,6 +294,9 @@ h1{
 	top: 0px;
 	width: 300px;
 	height: 25px;
+	z-index:100;
+	opacity:0;
+
 	background-image: url('assets/img/fadetop.png');
 }
 

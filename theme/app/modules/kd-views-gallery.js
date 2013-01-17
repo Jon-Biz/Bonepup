@@ -101,6 +101,7 @@ App.module("KateDesign", function(KateDesign){
 			*/
 		}
 		,onmodelselected:function(options){
+			
 			var model = options[0];
 			var left = -options[1];
 			console.log('left is'+left);
@@ -108,17 +109,35 @@ App.module("KateDesign", function(KateDesign){
 			this.onmouseout();
 			
 			if(this.model != model){
+				
 				KateDesign.vanisher(this);
+				//this.$el.stop(true).animate({opacity:0.0},750, function(){
+				//	this.close();
+				//});
+				
 			}else{
 								
 				/* animation 1		*/
 
-				this.$el.stop(true).animate({opacity:1.0},750).animate({left:'0px'},750,function(){
-					
-					var thetop = "-"+(model.get("custom_fields").zoomx1[0])+"px";
-					
-					$('.img',this.el).animate({top:thetop,width:'300px',left:'-100px'},750, function(){
-						console.log('animate done');
+				$('#item').css('overflow','visible');	
+				
+				// wait for 750ms, while product views are closed, 
+				// then set z-index to front
+				// and then slide to left 
+				// and then zoom to closeup and call next page
+				
+				var thisel = this.$el;
+
+				this.$el.stop(true).animate({opacity:1.0},750,function(){
+						thisel.css('zIndex',20);	
+						$('#productfadetop').css('opacity',1);
+						$('#productfadebot').css('opacity',1);
+
+					}).animate({left:'0px'},750,function(){
+						
+						var thetop = '-430px';
+						//var thetop = "-"+(model.get("custom_fields").zoomx1[0])+"px";
+						$('.img',this.el).animate({top:thetop,width:'300px',left:'-75px'},750, function(){
 						App.vent.trigger("KD:subviewsready",model);
 					});
 				});
@@ -314,24 +333,30 @@ App.module("KateDesign", function(KateDesign){
 		,onnavigate: function(selected_model){
 			// ignore if we are already open
 			console.log('checking model...');
+
 			if(this.model == selected_model){
 			}else{
-				var submodel = false;
+
+
+				//iterate through ocllection, 
+				
+				var item_present = false;
+
 				this.collection.each(function(model){
 					if (model == selected_model){
-						submodel = true;
+						$('.arrow').stop(true).animate({opacity: 0},250);
 
-						$('.arrow').animate({opacity: 0},750,function(){
-							$('#item').css('overflow','visible');							
-						});
-						
-						var options = [model,this.left];
-						console.log(this.left);
+						item_present = true;
+
+						var options = [model,this.left];						
 						App.vent.trigger('KD:modelselected',options);	
-					}
+						
+
+					};
 				},this);
 
-				if(!submodel){
+				// the submodel wasn't present just hide everything.
+				if(!item_present){
 					this.$el.stop(true).animate({opacity:0.0},750, function(){
 					KateDesign.onViewReady(selected_model);
 					})
