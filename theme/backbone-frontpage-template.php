@@ -118,8 +118,8 @@ Template Name: Backbone Front Page
 		<div id="content">
 			<div id="product-display"></div><!-- #product-display -->		
 
-	<div id="productfadetop"></div>
-	<div id="productfadebot"></div>
+	<!--div id="productfadetop"></div>
+	<div id="productfadebot"></div-->
 		</div><!-- #content -->
 		<div class="ruler" id="bottom_ruler"></div>
 		<div id="description-box">
