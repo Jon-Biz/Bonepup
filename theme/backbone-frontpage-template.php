@@ -19,6 +19,7 @@ Template Name: Backbone Front Page
 
 
 <!-- LIBRARIES -->
+
 	<script src="<?php echo get_bloginfo('template_directory');?>/assets/js/libs/jquery.js" ></script>
 	<script src="<?php echo get_bloginfo('template_directory');?>/assets/js/libs/json2.js"></script>
 	<script src="<?php echo get_bloginfo('template_directory');?>/assets/js/libs/underscore.js"></script>
@@ -26,7 +27,10 @@ Template Name: Backbone Front Page
 	<script src="<?php echo get_bloginfo('template_directory');?>/assets/js/libs/backbone.marionette.js"></script>
 	<script src="<?php echo get_bloginfo('template_directory');?>/assets/js/libs/PxLoader.js" ></script>
 	<script src="<?php echo get_bloginfo('template_directory');?>/assets/js/libs/PxLoaderImage.js" ></script>
-	<script src="<?php echo get_bloginfo('template_directory');?>/assets/js/libs/gsap/TimelineLite.min.js" ></script>
+	<script src="<?php echo get_bloginfo('template_directory');?>/assets/js/libs/gsap/TweenLite.min.js" ></script>
+
+	<script src="<?php echo get_bloginfo('template_directory');?>/assets/js/libs/gsap/plugins/CSSPlugin.min.js" ></script>
+	<script src="<?php echo get_bloginfo('template_directory');?>/assets/js/libs/gsap/plugins/EaselPlugin.min.js" ></script>
 
 <!-- Javascript -->
 
@@ -118,8 +122,8 @@ Template Name: Backbone Front Page
 		<div id="content">
 			<div id="product-display"></div><!-- #product-display -->		
 
-	<!--div id="productfadetop"></div>
-	<div id="productfadebot"></div-->
+	<div id="productfadetop"></div>
+	<div id="productfadebot"></div>
 		</div><!-- #content -->
 		<div class="ruler" id="bottom_ruler"></div>
 		<div id="description-box">
