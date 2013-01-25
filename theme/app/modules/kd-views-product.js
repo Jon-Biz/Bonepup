@@ -105,17 +105,12 @@ App.module("KateDesign", function(KateDesign){
 		}
 		,templateHelpers:{
 			grabthumbnail: function(){
-				//console.log('product this '+JSON.stringify(this));			
-			//	return('http://192.168.0.35/wp-content/uploads/2012/05/bottle11.jpg');
-				//default url is the last image uploaded
+				if(this.attachments){
+					var latest = this.attachments.length-1;
+					console.log('latest is ',latest);
 
-				//if the model's attachment array has any contents,return the last one's url'
-				if(this.custom_fields){
-					if(this.custom_fields.closeup){
-							return (this.custom_fields.closeup[0]);
-						
-					}
-				}	
+					return (this.attachments[latest].images.thumbnail.url);
+				}
 			}
 		}
 		,events: function(){
