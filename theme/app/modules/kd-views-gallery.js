@@ -46,20 +46,26 @@ App.module("KateDesign", function(KateDesign){
 
 			//set up callback for when other views are called			
 			this.onclickBind = App.vent.bindTo('KD:modelselected',this.onmodelselected);
+			
+			// retrieve the latest image to a convenience variable
+			
+			if(this.attachments){
+					var latest = this.attachments.length-1;
+					console.log('latest is ',latest);
+
+					this.image = (this.attachments[latest].images.thumbnail.url);
+				}
+
 		}		
 		,templateHelpers:{
 			grabthumbnail: function(){
-				
-				if(this.custom_fields){
-					if(this.custom_fields.product_image){
-							return (this.custom_fields.product_image[0]);		
-					}
-				} else if(this.attachments.length){
+				if(this.attachments){
+					var latest = this.attachments.length-1;
+					console.log('latest is ',latest);
 
-				//if the model's attachment array has any contents,return the last one's url'
-					url = (this.attachments[this.attachments.length-1].images.full.url);
-					return url;		
+					return (this.attachments[latest].images.thumbnail.url);
 				}
+				
 			}
 		}
 		,onRender: function(){
@@ -132,6 +138,12 @@ App.module("KateDesign", function(KateDesign){
 				// and then zoom to closeup and call next page
 				
 				var thisel = this.$el;
+				
+				// retrieve images to calculate zoom.
+				var attachments = this.model.get('attachments');
+				var latest = attachments.length-1;
+				var image = (attachments[latest].images);
+
 
 				this.$el.stop(true).animate({opacity:1.0},750,function(){
 						thisel.css('zIndex',20);	
@@ -140,10 +152,13 @@ App.module("KateDesign", function(KateDesign){
 
 					}).animate({left:'0px'},750,function(){
 						
-						//var thetop = '-498px';
+						//var thetop = '0px';
+						var width  = image.medium.width;
+						var height = image.medium.height;
+
 						var thetop = "-"+(model.get("custom_fields").zoomx1[0])+"px";
-						console.log('the top is',thetop);
-						$('.img',this.el).animate({top:thetop,width:'300px',left:'-75px'},750, function(){
+
+						$('.img',this.el).animate({top:thetop,'height':height,'width':width,left:'-75px'},750, function(){
 						App.vent.trigger("KD:subviewsready",model);
 					});
 				});
