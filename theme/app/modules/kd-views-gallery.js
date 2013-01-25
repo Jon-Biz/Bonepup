@@ -155,8 +155,9 @@ App.module("KateDesign", function(KateDesign){
 						//var thetop = '0px';
 						var width  = image.medium.width;
 						var height = image.medium.height;
-
-						var thetop = "-"+(model.get("custom_fields").zoomx1[0])+"px";
+						var zoomx = -model.get("custom_fields").zoomx1[0];
+	
+						var thetop = zoomx-25;
 
 						$('.img',this.el).animate({top:thetop,'height':height,'width':width,left:'-75px'},750, function(){
 						App.vent.trigger("KD:subviewsready",model);

@@ -88,8 +88,8 @@ App.module("KateDesign", function(KateDesign){
 		,template:"#productview"
 		,initialize:function(){
 			this.onnavigateBind = App.vent.bindTo('KD:navigate',this.navigate,this);							
-			console.log('navigate bound');
-		
+
+					
 		}
 		,navigate: function(model){
 			console.log('navigating from view');
@@ -109,8 +109,11 @@ App.module("KateDesign", function(KateDesign){
 					var latest = this.attachments.length-1;
 					console.log('latest is ',latest);
 
-					return (this.attachments[latest].images.thumbnail.url);
+					return (this.attachments[latest].images.medium.url);
 				}
+			}
+			,thetop:function(){
+				return("-"+this.custom_fields.zoomx1[0]+"px");
 			}
 		}
 		,events: function(){

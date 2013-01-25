@@ -100,7 +100,7 @@ Template Name: Backbone Front Page
 </script>
 
 <script type="text/template" id="productview">
-	<img id="productimage" src=<%= grabthumbnail() %> /> 
+	<img id="productimage" style="top:<%= thetop() %>" src=<%= grabthumbnail() %> /> 
 
 	<div id="producttext"><%= content %></div>
 </script>
