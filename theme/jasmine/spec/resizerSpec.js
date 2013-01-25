@@ -3,13 +3,11 @@ describe("the zoom module",function(){
 	beforeEach(function(){
 		
 		App.start();
-		Animation = App.module("Animation");
 		//		Animation.start();
 		
 	});
 	
 	afterEach(function(){
-		Animation = "";
 	});
 	
 	describe("widthorheight",function(){
@@ -43,7 +41,7 @@ describe("the zoom module",function(){
 
 				//identical boxes
 				expect(App.Animation.zoomfactor(0,0,500,300,500,300).toFixed(5)).toEqual('1.00000');
-	
+				
 				//close up boxes
 				expect(App.Animation.zoomfactor(0,0,501,300,500,300).toFixed(5)).toEqual('0.99800');
 				expect(App.Animation.zoomfactor(0,0,500,301,500,300).toFixed(5)).toEqual('0.99668');
@@ -53,4 +51,31 @@ describe("the zoom module",function(){
 		})
 	});
 		
+	describe ("resizer",function(){
+		
+		it("should return the corrected height and width of an image for a given test case",function(){
+			
+			var resizer = App.Animation.resizer(10000,10000,0,0,1000,10,100,100)
+				, resizew = resizer[0]
+				, resizeh = resizer[1]
+			
+			expect(resizew.toFixed(5)).toEqual('1000.00000');
+			expect(resizeh.toFixed(5)).toEqual('1000.00000');
+
+			var resizer = App.Animation.resizer(10000,10000,0,0,10,1000,100,100)
+				, resizew = resizer[0]
+				, resizeh = resizer[1]
+							
+			expect(resizew.toFixed(5)).toEqual('1000.00000');
+			expect(resizeh.toFixed(5)).toEqual('1000.00000');
+
+			var resizer = App.Animation.resizer(10000,10000,0,0,500,300,500,300)
+				, resizew = resizer[0]
+				, resizeh = resizer[1]
+			
+			expect(resizew.toFixed(5)).toEqual('10000.00000');
+			expect(resizeh.toFixed(5)).toEqual('10000.00000');
+			
+		});
+	});
 })

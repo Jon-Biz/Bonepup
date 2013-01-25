@@ -73,5 +73,14 @@ Animation.vanisher = function(view){
 			
 		}
 
+	Animation.resizer = function(w,h,x1,y1,x2,y2,dw,dh){
 
+		var zoomfactor = Animation.zoomfactor(x1,y1,x2,y2,dw,dh)
+		var resizew = w * zoomfactor
+		var resizeh = h * zoomfactor;
+
+		return([resizew,resizeh]);
+		
+	};
+	
 })
