@@ -150,7 +150,6 @@ width:875px;
 	
 }
 #carousel {
-	top:-400px;
 	position:absolute;
 	height:1025px;
 	left: 0px;
@@ -159,13 +158,14 @@ width:875px;
 .image-box {
 	position:absolute;
 	height:525px;
-	top:425px;
+	top:25px;
   }
 
 .image-box .img {
 	position:relative;
 	top:0px;
 	height:500px;
+	
 
 
 
