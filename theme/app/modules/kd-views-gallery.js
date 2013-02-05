@@ -121,7 +121,7 @@ App.module("KateDesign", function(KateDesign){
 			
 			if(this.model != model){
 				
-				KateDesign.vanisher(this);
+				App.Animation.vanisher(this);
 				//this.$el.stop(true).animate({opacity:0.0},750, function(){
 				//	this.close();
 				//});
@@ -129,41 +129,75 @@ App.module("KateDesign", function(KateDesign){
 			}else{
 								
 				/* animation 1		*/
-
+				
+				// set the #item div to show things outside the edges
 				$('#item').css('overflow','visible');	
-				
-				// wait for 750ms, while product views are closed, 
-				// then set z-index to front
-				// and then slide to left 
-				// and then zoom to closeup and call next page
-				
-				var thisel = this.$el;
 				
 				// retrieve images to calculate zoom.
 				var attachments = this.model.get('attachments');
 				var latest = attachments.length-1;
 				var image = (attachments[latest].images);
 
+				var imagewidth = $('#image-box').css;
+				
+				var width  = image.full.width;
+				var height = image.full.height;
+				
+				var x1 = this.model.get("custom_fields").zoomx1[0];
+				var y1 = this.model.get("custom_fields").zoomy1[0];
+				var x2 = this.model.get("custom_fields").zoomx2[0];
+				var y2 = this.model.get("custom_fields").zoomy2[0];
 
+				console.log('data:',width,height,x1,y1,x2,y2);
+
+				var thisel = this.$el
+					,single_left = -x1					
+					,single_width = width
+					,single_height = height
+					,single_top = -y1;
+
+					var zoom = 2;
+					var zleft = single_left * zoom
+						, zwidth = single_width * zoom
+						, zheight = single_height * zoom
+						, ztop = single_top * zoom
+
+					var final_left = zleft+'px'
+						, final_width = zwidth+'px'
+						, final_height = zheight+'px'
+						, final_top = ztop+'px'
+					
+					
+//				var resizer = App.Animation.resizer(width,height,x1,y1,x2,y2,300,555)
+//					, zwidth = resizer[0]
+//					, zheight = resizer[1]
+
+				
 				this.$el.stop(true).animate({opacity:1.0},750,function(){
-						thisel.css('zIndex',20);	
-						$('#productfadetop').css('opacity',1);
-						$('#productfadebot').css('opacity',1);
+					//move this view to the front
+					thisel.css('zIndex',20);	
+					
+					// move the item div to fully to the left, where the nav bars were					
+					$('#item').animate({left:'0px'},750);
 
-					}).animate({left:'0px'},750,function(){
+					//set prodimage div to hide overflow so zoomed image is cropped
+					$('.prodimage',thisel).css({width:'300px',overflow:'hidden'});
+
+					//move the view all the way to the left of the view.
+					thisel.animate({left:'0px'},750, function(){
+
+						//move item box to top during zoom
+						$('#item').animate({top:'0px'},150);
 						
-						//var thetop = '0px';
-						var width  = image.medium.width;
-						var height = image.medium.height;
-						var zoomx = -model.get("custom_fields").zoomx1[0];
-	
-						var thetop = zoomx-25;
 
-						$('.img',this.el).animate({top:thetop,'height':height,'width':width,left:'-75px'},750, function(){
-						App.vent.trigger("KD:subviewsready",model);
+						//zoom image
+						
+						$('.img',this.el).animate({top:final_top,'left':final_left, 'width':final_width, 'height':final_height},750, function(){
+						//App.vent.trigger("KD:subviewsready",model);
+						});
 					});
 				});
-				
+
 				/* animation 2
 
 				this.$el.stop(true).animate({opacity:1.0},750).animate({left:"0px"},750,function(){
