@@ -1,5 +1,6 @@
 App.module("Animation", function(Animation){
 
+
 Animation.vanisher = function(view){
 					console.log('vanish triggered');
 
@@ -10,10 +11,9 @@ Animation.vanisher = function(view){
 
 				});
 				
-
 }
 	
-	Animation.widthorheight = function(x1,y1,x2,y2,dw,dh){
+Animation.widthorheight = function(x1,y1,x2,y2,dw,dh){
 			
 			/*
 			 *  determine whether to use height or width
@@ -37,7 +37,7 @@ Animation.vanisher = function(view){
 			};
 		};
 	
-	Animation.zoomfactor = function(x1,y1,x2,y2,dw,dh){
+Animation.zoomfactor = function(x1,y1,x2,y2,dw,dh){
 			
 		/*
 		 *  determine zoom
@@ -51,7 +51,7 @@ Animation.vanisher = function(view){
 				, dhw = dh/dw
 				, zhw = zh/zw;
 			
-					console.log('ZOOM width : ',zw);
+			console.log('ZOOM width : ',zw);
 			
 			console.log('ZOOM height : ',zh);
 			
@@ -73,14 +73,15 @@ Animation.vanisher = function(view){
 			
 		}
 
-	Animation.resizer = function(w,h,x1,y1,x2,y2,dw,dh){
+Animation.resizer = function(w,h,x1,y1,x2,y2,dw,dh){
 
 		var zoomfactor = Animation.zoomfactor(x1,y1,x2,y2,dw,dh)
+		
+		console.log('zoomfactor ',zoomfactor);
 		var resizew = w * zoomfactor
 		var resizeh = h * zoomfactor;
+		
 
 		return([resizew,resizeh]);
 		
 	};
-	
-})
