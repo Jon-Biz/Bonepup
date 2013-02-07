@@ -127,12 +127,22 @@ width:875px;
 	position: relative;
 }
 
+#productimagebox{
+	height: 555px;
+	overflow: hidden;
+	position:absolute;
+	width: 800px
+
+}
+
+
 #product-display{
 	position:absolute;
 	overflow:hidden;
 	height:740px;
 	width:800px
 }
+
 
 #gallery {
 
@@ -143,7 +153,7 @@ width:875px;
 #gallery #item{
 	left:75px;
 	position: relative;
-	top:0px;
+	top:25px;
 	width:625px;
 	height:925px;
 	overflow:hidden;
@@ -151,14 +161,14 @@ width:875px;
 }
 #carousel {
 	position:absolute;
-	height:1025px;
+	height:555px;
 	left: 0px;
+	overflow:hidden;
 	width: 1000px;
 }
 .image-box {
 	position:absolute;
 	height:525px;
-	top:25px;
   }
 
 .image-box .img {
