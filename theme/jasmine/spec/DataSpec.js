@@ -69,10 +69,15 @@ describe("when it is initialzied with an options parameter",function(){
 		expect(this.Data.options).toEqual(this.options);
 		
 	});
-		it("should make an ajax request based on the options sent to it",function(){
+	
+		it("should create a post_item collection for each request in the options list",function(){
+
+			this.Data.start(this.options);
+			expect(this.Data.Page_collections.length).toEqual(this.options.requests.length);
+	});
+		xit("should make an ajax request based on the options sent to it",function(){
 			
 			
-			this.Data.start();
 	
 		});
 		
