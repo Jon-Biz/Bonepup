@@ -94,8 +94,34 @@ describe("when it is initialzied with an options parameter",function(){
 		expect(spy).toHaveBeenCalled();
 	});
 
-	xit("should have been made for each of the requests in the options",function(){
-					expect(spy).toHaveBeenCalled()
+	it("should be called once when given one request ",function(){
+
+		this.Data.start({url:"test"
+																					,requests: [{
+																						'command':'get_posts'
+																						,'custom_fields':'test_field'
+																						}]
+																				})
+																				;
+		expect(spy).toHaveBeenCalledOnce();
+		
+	});
+
+	it("should be called twice when given two requests",function(){
+
+		this.Data.start({url:"test"
+																					,requests: [{
+																						'command':'get_posts'
+																						,'custom_fields':'test_field'
+																						}
+																						,{
+																						'command':'get_posts'
+																						,'custom_fields':'test_field'
+																						}]
+																				})
+																				;
+		expect(spy).toHaveBeenCalledTwice();
+		
 	});
 		
 	it("the ajax should requests based on the options sent to it",function(){
