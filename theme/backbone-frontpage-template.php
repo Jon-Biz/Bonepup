@@ -60,7 +60,7 @@ Template Name: Backbone Front Page
 	</div><!--primary -->
 </div><!-- main -->
 
-<div id="footer">Footer/div>
+<div id="footer">Footer</div>
 
 </div><!-- wrapper -->
 
