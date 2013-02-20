@@ -6,7 +6,7 @@ App.module("Data",function(Data){
 
 			options = options || {};
 			options.url = options.url || "localhost";
-
+			options.requests = options.requests || [{'command':'get_page_index','custom_fields':''}];
 			Data.options = options;
 
 		});

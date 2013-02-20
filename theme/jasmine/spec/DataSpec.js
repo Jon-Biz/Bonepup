@@ -31,6 +31,10 @@ describe("The Data Module",function(){
 		
 		var options = {
 			'url':'localhost'
+			,'requests':[
+				{'command':'get_page_index'
+				,'custom_fields':''}
+				]
 		}
 
 		this.Data.start();
@@ -63,8 +67,10 @@ describe("when it is initialzied with an options parameter",function(){
 			this.Data.start(this.options);
 		
 		expect(this.Data.options).toEqual(this.options);
+		
 	});
 		it("should make an ajax request based on the options sent to it",function(){
+			
 			
 			this.Data.start();
 	
