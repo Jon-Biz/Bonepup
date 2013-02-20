@@ -1,12 +1,11 @@
 describe("The Data Module",function(){
 
 
-	describe("when it is initialized",function(){
+	describe("when it is started",function(){
 		
 		beforeEach(function(){
 			
 			this.Data = App.module("Data");
-			this.Data.start();
 			
 		});
 	
@@ -20,6 +19,8 @@ describe("The Data Module",function(){
 			this.Data.ready.add(function(){
 				callbackwatcher();
 			})
+
+			this.Data.start();
 			 this.Data.ready.run()
 			
 			expect(callbackwatcher).toHaveBeenCalled();
@@ -27,16 +28,46 @@ describe("The Data Module",function(){
 		});
 
 	it("should use the default options since none are stated",function(){
+		
 		var options = {
 			'url':'localhost'
 		}
 
+		this.Data.start();
+		
 		expect (this.Data.options).toEqual(options);
 
 	})
 
-		xit("should make an ajax request based on the options sent to it",function(){
+});
+
+describe("when it is initialzied with an options parameter",function(){
 			
+		beforeEach(function(){
+
+			this.options = {
+				url:"test"
+			}
+			
+			this.Data = App.module("Data");
+			
+
+		});
+	
+		afterEach(function(){
+			 this.Data.stop();
+		});	
+	
+	it("should set  its options variable to those received",function(){
+
+			this.Data.start(this.options);
+		
+		expect(this.Data.options).toEqual(this.options);
+	});
+		it("should make an ajax request based on the options sent to it",function(){
+			
+			this.Data.start();
+	
 		});
 		
 		xit("should trigger the callback when the ajax call returns",function(){
@@ -77,27 +108,6 @@ describe("The Data Module",function(){
 
 });
 
-xdescribe("when it is initialzied with an options parameter",function(){
-			
-		beforeEach(function(){
-
-			options = {
-				url:"test"
-			}
-			this.Data = App.module("Data");
-			this.Data.on("start", function(options){
-				this.options = options;
-			})
-			
-			this.Data.start(options);
-
-		});
-	
-			afterEach(function(){
-				 this.Data.stop();
-			});	
-	
-	});
 		
 		
 
