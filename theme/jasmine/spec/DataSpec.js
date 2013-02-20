@@ -51,10 +51,10 @@ describe("when it is initialzied with an options parameter",function(){
 
 			this.options = {
 				url:"test"
+				,requests: [{'command':'get_posts','custom_fields':'test_field'}]
 			}
 			
 			this.Data = App.module("Data");
-			
 
 		});
 	
