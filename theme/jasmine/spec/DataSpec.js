@@ -4,10 +4,8 @@ describe("The Data Module",function(){
 	describe("when it is initialized",function(){
 		
 		beforeEach(function(){
-			console.log('not started');
 			
 			this.Data = App.module("Data");
-
 			this.Data.start();
 			
 		});
@@ -28,8 +26,13 @@ describe("The Data Module",function(){
 
 		});
 
-	it("should set up the default options",function(){
-		expect (this.Data.options.url).toEqual('localhost');
+	it("should use the default options since none are stated",function(){
+		var options = {
+			'url':'localhost'
+		}
+
+		expect (this.Data.options).toEqual(options);
+
 	})
 
 		xit("should make an ajax request based on the options sent to it",function(){
