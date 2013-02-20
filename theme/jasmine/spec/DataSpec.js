@@ -1,7 +1,6 @@
-describe("The Data Module",function(){
 
 
-	describe("when it is started",function(){
+	describe("When the Data Module is started",function(){
 		
 		beforeEach(function(){
 			
@@ -30,7 +29,7 @@ describe("The Data Module",function(){
 	it("should use the default options since none are stated",function(){
 		
 		var options = {
-			'url':'localhost'
+			'url':'http://localhost'
 			,'requests':[
 				{'command':'get_page_index'
 				,'custom_fields':''}
@@ -45,12 +44,12 @@ describe("The Data Module",function(){
 
 });
 
-describe("when it is initialzied with an options parameter",function(){
+	describe("when it is initialzied with an options parameter",function(){
 			
 		beforeEach(function(){
 
 			this.options = {
-				url:"test"
+				url:"http://localhost"
 				,requests: [{'command':'get_posts','custom_fields':'test_field'}]
 			}
 			
@@ -70,27 +69,26 @@ describe("when it is initialzied with an options parameter",function(){
 		
 	});
 	
-		it("should create a collection for each request in the options list",function(){
-
-			this.Data.start(this.options);
-			expect(this.Data.Page_collections.length).toEqual(this.options.requests.length);
-	});
 	
 	
 	describe("an ajax call",function(){
 
-	beforeEach(function(){
-		spy = sinon.spy($, "ajax");
-		
-	});
+		beforeEach(function(){
 
-	afterEach(function(){
-		$.ajax.restore();
-	});
+			spy = sinon.spy($, "ajax");
+			
+		});
+		
+				
+
+		afterEach(function(){
+			$.ajax.restore();
+		});
 
 	it("should have been made",function(){
 
 		this.Data.start(this.options);
+		console.log(spy.returnValues[0]);
 		expect(spy).toHaveBeenCalled();
 	});
 
@@ -118,24 +116,34 @@ describe("when it is initialzied with an options parameter",function(){
 																						'command':'get_posts'
 																						,'custom_fields':'test_field'
 																						}]
-																				})
-																				;
+																				});
+																				
 		expect(spy).toHaveBeenCalledTwice();
 		
 	});
 		
-	it("the ajax should requests based on the options sent to it",function(){
+	it("should be  based on the options sent to it",function(){
 			
+			this.Data.start(this.options);
+			expect(spy.getCall(0).args[0].url).toEqual("http://localhost/?json=get_posts&custom_fields=test_field");
+	});
+
+			xit("should create a collection for each request in the options list",function(){
+
+			this.Data.start(this.options);
+			expect(this.Data.Page_collections.length).toEqual(this.options.requests.length);
 	});
 
 });
+
 
 
 		xit("should trigger the callback when the ajax call returns",function(){
 		});
 		
 	});
-		xdescribe("when App.Data.Ready  is triggered",function(){
+
+	xdescribe("when App.Data.Ready  is triggered",function(){
 			
 			beforeEach(function(){
 			
@@ -166,25 +174,3 @@ describe("when it is initialzied with an options parameter",function(){
 			});			
 
 		});
-
-});
-
-		
-		
-
-xdescribe("",function(){
-
-	beforeEach(function(){
-		
-	});
-
-	afterEach(function(){
-		
-	});
-
-	xit("",function(){
-		
-	});
-	
-});
-
