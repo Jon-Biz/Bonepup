@@ -1,12 +1,35 @@
 describe("The Data Module",function(){
 
+
 	describe("when it is initialized",function(){
-				
-		xit("should create a callback called App.Data.Ready",function(){
+		
+		beforeEach(function(){
+			console.log('not started');
+			
+			this.Data = App.module("Data");
+
+			this.Data.start();
+			
+		});
+	
+		afterEach(function(){
+			 this.Data.stop();
+		});
+		
+		it("should create a callback called App.Data.Ready",function(){
+
+			var callbackwatcher = sinon.spy();
+			this.Data.ready.add(function(){
+				callbackwatcher();
+			})
+			 this.Data.ready.run()
+			
+			expect(callbackwatcher).toHaveBeenCalled();
 
 		});
 
-	xit("should set up the default options",function(){
+	it("should set up the default options",function(){
+		expect (this.Data.options.url).toEqual('localhost');
 	})
 
 		xit("should make an ajax request based on the options sent to it",function(){
@@ -17,9 +40,16 @@ describe("The Data Module",function(){
 		});
 		
 	});
+		xdescribe("when App.Data.Ready  is triggered",function(){
+			
+			beforeEach(function(){
+			
+			});
 	
-	xdescribe("when App.Data.Ready  is triggered",function(){
-				
+			afterEach(function(){
+			
+			});
+			
 			describe("App.Data.Pages",function(){
 				
 				it("should be a collection ",function(){
