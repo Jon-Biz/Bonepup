@@ -18,6 +18,8 @@ App.module("Data",function(Data){
 		
 		_.each(Data.options.requests,function(request){
 			var Request = new Backbone.Collection();
+			Request.url = Data.options.url;
+			Request.fetch();
 			Data.Page_collections.push(Request);
 	
 		});

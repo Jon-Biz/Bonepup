@@ -70,17 +70,41 @@ describe("when it is initialzied with an options parameter",function(){
 		
 	});
 	
-		it("should create a post_item collection for each request in the options list",function(){
+		it("should create a collection for each request in the options list",function(){
 
 			this.Data.start(this.options);
 			expect(this.Data.Page_collections.length).toEqual(this.options.requests.length);
 	});
-		xit("should make an ajax request based on the options sent to it",function(){
-			
-			
 	
-		});
+	
+	describe("an ajax call",function(){
+
+	beforeEach(function(){
+		spy = sinon.spy($, "ajax");
 		
+	});
+
+	afterEach(function(){
+		$.ajax.restore();
+	});
+
+	it("should have been made",function(){
+
+		this.Data.start(this.options);
+		expect(spy).toHaveBeenCalled();
+	});
+
+	xit("should have been made for each of the requests in the options",function(){
+					expect(spy).toHaveBeenCalled()
+	});
+		
+	it("the ajax should requests based on the options sent to it",function(){
+			
+	});
+
+});
+
+
 		xit("should trigger the callback when the ajax call returns",function(){
 		});
 		
