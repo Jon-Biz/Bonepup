@@ -37,4 +37,38 @@ App.module("Data",function(Data){
 	
 		});
 	});
+	
+	
+	Data.images_load = function(collection_model,image_size){		
+
+		var gallery = collection_model.get('children'),
+			checklist = gallery.length,
+			images_loaded_cb = new Backbone.Marionette.Callbacks();
+
+		gallery.each(function(model){
+			console.log('up first....',model.get('title'));
+			Data.image_load(model,image_size).add(function(){
+				checklist --;
+			 	if (checklist == 0) {images_loaded_cb.run();} ;
+			});
+		});
+				
+		return images_loaded_cb;;
+	};
+
+	Data.image_load= function(model,image_size,dom){
+
+		var image_loaded_cb = new Backbone.Marionette.Callbacks(),
+			latest = model.get("attachments").length-1,
+			image_url = model.get('attachments')[latest].images[image_size].url,
+			dom = dom || $('<img>');
+			
+		dom.attr({ src: image_url })
+			.load(function() {
+				console.log('image callback called')
+				image_loaded_cb.run();
+			});	
+			
+		return image_loaded_cb;
+	};	
 });
