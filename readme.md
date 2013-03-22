@@ -1,15 +1,24 @@
-!Installation
+BonePup
+=======
+Bonepup is a front end for wordpress blogs, based on backbone and backbone marrionette. It provieds the framework needed to build a modern single page web app style site, while incorporating an existing wordpress instance. In other words you can update your wordpress blog without exporting all your post (or create a new one, naturally).
 
-!!Setup
-* install the json plugin (wordpress - install plugin from zip, upload)
+Bonepup is installed as a 'theme' in your wordpress instance, so it can be switched on temporarily. All the orginal wordpress php pages are still present. Replace these with your own and older links elsewhere on the web will still be served without redirection. You may want to utilizing the standard wordpress css selectors so that the pages are set up apropriately.
+
+Installation
+============
+Setup
+-----
+* install the attached json plugin (wordpress admin console/settings/plugins/install plugin from zip/upload)
 * place the bonepup directory in your wp-content/themes/ directory
-* log in to wordpress and choose the 'bonepup' theme.
+* select the 'bonepup' theme from the wordpress admin console.
 
-!! Implementation
+Implementation
+--------------
 
 * Do a global search and replace for App.Data and replace with [your app's name].Data
 
-!! Usage
+Usage
+-----
 
 A request for post items looks like this:
 
@@ -37,11 +46,10 @@ Data.Ready.on(function(){
 	
 };
 
-Sits in my controller.
+Posts are accessible at [YOUR APP]Data.Posts
 
-Posts are accessible at Data.Posts
-
-! Pages
+Pages
+-----
 Data.Pages is a hierarchical collection of models, with children pages accessible as an array in the parent's 'children' attribute. 
 Data.PageIndex is a flat stack of all the pages.
 
