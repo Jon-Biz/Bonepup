@@ -22,7 +22,7 @@ Implementation
 Usage
 -----
 
-Create a new instance of the marrionnette Data module, passing it it's initial array of page requests as an object literal, along with an optional url: it defaults to localhost. 
+Create a new instance of the marrionnette Data module, passing it it's initial array of page requests as an object literal, along with an optional url: it defaults to localhost. These can also be passed down from your parent application's start options.
 
 ```javascript
 App.Data.start({url : "put your wordpress blogs URL here"
