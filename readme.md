@@ -6,7 +6,6 @@ Pages are kept in a recursive collection at [YOUR APP].Data.Posts, with each pag
 
 Bonepup is installed as a 'theme' in your wordpress instance, so it can be switched on temporarily. All the orginal wordpress php pages are still present. Replace these with your own and older links elsewhere on the web will still be served without redirection. You may want to utilizing the standard wordpress css selectors so that the pages are set up apropriately.
 
-
 Installation
 ============
 Setup
@@ -51,16 +50,18 @@ Data.Ready.on(function(){
 };
 ```
 
-Data
+Data Access
 -----
-Data.Pages is a hierarchical collection of models, with children pages accessible as an array in the parent's 'children' attribute. 
 
-Data.PageIndex is a flat stack of all the pages.
+Data.Pages is a hierarchical collection of models, with children pages accessible as an array in the parent's 'children' attributes, facilitating recursive display and bread crumbing.
 
-Custom fields are accessible via the model's getter, you can filter the pages by their custom_fields.
+Data.PageIndex is a flat stack of all the pages currently held, suitable for searching and selecting from currently held posts.
+
+Custom fields are accessible via the model's getter, you can filter the pages into by their custom_fields.
 
 ```javascript
 //create product collection, menu collection
 Menu = new Data.PageCollection(Data.Pages.where({description:'menu'}));
 Products = new Data.PageCollection(Data.Pages.where({description: 'gallery'}));
 ```
+
