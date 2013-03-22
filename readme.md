@@ -1,10 +1,10 @@
 BonePup
 =======
-Bonepup is a front end for wordpress blogs, based on backbone and backbone marrionette. It provieds the framework needed to build a modern single page web app style site, while incorporating an existing wordpress instance. In other words you can update your wordpress blog without exporting all your post (or create a new one, naturally).
+Bonepup is a front end for wordpress blogs, based on backbone and backbone marrionette. It provieds the framework needed to build a modern single page web app style site, while incorporating an existing wordpress instance. In other words, you can update your wordpress blog without exporting all your post (or create a new one, naturally).
 
 Pages are kept in a recursive collection at [YOUR APP].Data.Posts, with each page containing any child pagees, and this can be filtered to provide specific collections and groups during initialization.
 
-Bonepup is installed as a 'theme' in your wordpress instance, so it can be switched on temporarily. All the orginal wordpress php pages are still present. Replace these with your own and older links elsewhere on the web will still be served without redirection. You may want to utilizing the standard wordpress css selectors so that the pages are set up apropriately.
+Bonepup is installed as a 'theme' in your wordpress instance, so it can be switched on temporarily. All the orginal wordpress php pages are still present: replace these with your own and older links elsewhere on the web will still be served without redirection. You may want to utilizing the standard wordpress css selectors so that the pages are set up apropriately.
 
 Installation
 ============
