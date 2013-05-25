@@ -37,11 +37,10 @@ fetch_amount, which is optional, is the amount of posts to pull for each subsequ
 
 custom_fields contains a list of the custom fields your model needs access to, in a comma delimited format.
 };
-```
 
 Pages
 -----
-If post type pages is specficied, a hierarchical collection of models is retreived, with children pages accessible as an array in the parent's 'children' attributes, facilitating recursive display and bread crumbing.
+If ```post_type 'pages' is specficied, a hierarchical collection of models is retreived, with children pages accessible as an array in the parents' ```children attributes, facilitating recursive display and bread crumbing.
 
 The function PageIndex() returns a flat collection of all the pages currently below the one in question, suitable for searching and selecting from currently held posts.
 
