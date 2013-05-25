@@ -1,12 +1,10 @@
 BonePup
 =======
-Bonepup is a front end for wordpress blogs, based on backbone and backbone marrionette. It provieds the framework needed to build a modern single page web app style site, while incorporating an existing wordpress instance. In other words you can update your wordpress blog without exporting all your post (or create a new one, naturally).
+Bonepup is a front end for wordpress blogs, based on backbone.js It provides the framework needed to build a modern single page web app site, while incorporating an existing wordpress instance. In other words you can update your wordpress blog without exporting all your posts to something else, or abandoning them altogether.
 
-Bonepup is a front end for wordpress blogs, based on backbone.js. With Bonepup, you can deliver your blog or CMS in single page web app style site incorporating an existing wordpress instance.
+**Bonepup is now a standalone backbone extension: the Boilerplate Marionette.js webapp incarnation has been moved to [Bonepup-Boilerplate](https://github.com/Jon-Biz/Bonepup-Boilerplate).**
 
-UPDATE: Bonepup is now a standalone backbone extension: the [Boilerplate Marionette webapp](](https://github.com/Jon-Biz/Bonepup-Boilerplate)) incarnation has been moved to Bonepup-boilerplate. 
-
-This repo is intended for developers familiar with backbone who want a drop in replacement file for accessing a wordpress back end and who don't need php fallback pages. Bonepup-boilerplate is intended for wordpress developers who are just coming to backbone, legacy blogs that need to maintain an existing URL framework in the case of incoming links, etc, and as a functioning example ready to play around with on your wordpress blog.
+This repo is intended for developers familiar with backbone who aren't using marionette, or otherwise want a drop in replacement file in order to access a wordpress back end, and who don't need php fallback pages. Bonepup-boilerplate is intended for wordpress developers who are just coming to backbone, legacy blogs that need to maintain an existing URL framework in the case of incoming links, etc, and as a functioning example ready to play around with on your wordpress blog.
 
 Currently, bonepup supports the retrieval of wordpress posts, pages and custom post types. Search is not yet implemented.
 
