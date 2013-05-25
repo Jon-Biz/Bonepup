@@ -1,5 +1,6 @@
 BonePup
 =======
+Bonepup is a front end for wordpress blogs, based on backbone and backbone marrionette. It provieds the framework needed to build a modern single page web app style site, while incorporating an existing wordpress instance. In other words you can update your wordpress blog without exporting all your post (or create a new one, naturally).
 
 Bonepup is a front end for wordpress blogs, based on backbone.js. With Bonepup, you can deliver your blog or CMS in single page web app style site incorporating an existing wordpress instance.
 
@@ -38,6 +39,7 @@ fetch_amount, which is optional, is the amount of posts to pull for each subsequ
 
 custom_fields contains a list of the custom fields your model needs access to, in a comma delimited format.
 };
+```
 
 Pages
 -----
