@@ -14,7 +14,7 @@ Installation
 
 JSON access
 -----------
-Access to wordpress is facilitated by a modified version of XXX's json-plugin. You will need to install this plugin before you can access the wordpress data. 
+You will need to install this plugin before you can access the wordpress data. 
 
 * install the attached json plugin (wordpress admin console/settings/plugins/install plugin from zip/upload)
 * activate the plugin, (from wp-admin/plugins.php) if necessary
@@ -22,15 +22,16 @@ Access to wordpress is facilitated by a modified version of XXX's json-plugin. Y
 Usage
 -----
 
-Initialize a backbone.boneup.collection to create a collection for each type of content.
+Initialize a ```Backbone.Boneup.Collection``` to create a collection for each type of content.
 
+```javascript
   My_posts = Backbone.Bonepup.Collection.extend({
   	url: 'yourwordpresssites.url.here'
 	'post_type':'pages'
 	,'fetch_amount':'10'
 	,'custom_fields':"Put,your,comma-delimited,custom fields,here"
 });
-
+```
 post_type denotes the post type, such as page or post
 
 fetch_amount, which is optional, is the amount of posts to pull for each subsequent fetch request. So, on each fetch an additional fetch_amount of posts will be retreived and added to the collection. The default is all.
@@ -40,7 +41,7 @@ custom_fields contains a list of the custom fields your model needs access to, i
 
 Pages
 -----
-If ```post_type 'pages' is specficied, a hierarchical collection of models is retreived, with children pages accessible as an array in the parents' ```children attributes, facilitating recursive display and bread crumbing.
+If ```post_type``` 'pages' is specficied, a hierarchical collection of models is retreived, with children pages accessible as an array in the parents' children attributes, facilitating recursive display and bread crumbing.
 
 The function PageIndex() returns a flat collection of all the pages currently below the one in question, suitable for searching and selecting from currently held posts.
 
