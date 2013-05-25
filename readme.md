@@ -4,11 +4,11 @@ Bonepup is a front end for wordpress blogs, based on backbone and backbone marri
 
 Bonepup is a front end for wordpress blogs, based on backbone.js. With Bonepup, you can deliver your blog or CMS in single page web app style site incorporating an existing wordpress instance.
 
-UPDATE: Bonepup is now a standalone backbone extension: the boilerplate Marionette webapp previously hosted here has been moved to Bonepup-boilerplate. 
+UPDATE: Bonepup is now a standalone backbone extension: the [Boilerplate Marionette webapp](](https://github.com/Jon-Biz/Bonepup-Boilerplate)) incarnation has been moved to Bonepup-boilerplate. 
 
 This repo is intended for developers familiar with backbone who want a drop in replacement file for accessing a wordpress back end and who don't need php fallback pages. Bonepup-boilerplate is intended for wordpress developers who are just coming to backbone, legacy blogs that need to maintain an existing URL framework in the case of incoming links, etc, and as a functioning example ready to play around with on your wordpress blog.
 
-Currently, bonepup supports the retrieval of wordpress posts, pages and custom post types. **As of (xx/xx/xx) search is currently being implemented.** 
+Currently, bonepup supports the retrieval of wordpress posts, pages and custom post types. Search is not yet implemented.
 
 Installation
 ------------
